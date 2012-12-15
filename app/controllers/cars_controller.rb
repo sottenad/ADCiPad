@@ -5,7 +5,7 @@ class CarsController < ApplicationController
     @cars = Car.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # getbymake.html.erb
       format.json { render json: @cars }
     end
   end

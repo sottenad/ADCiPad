@@ -5,10 +5,11 @@ class MakesController < ApplicationController
     @makes = Make.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # getbymake.html.erb
       format.json { render json: @makes }
     end
   end
+
 
   # GET /makes/1
   # GET /makes/1.json

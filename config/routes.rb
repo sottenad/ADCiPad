@@ -3,6 +3,8 @@ ADC::Application.routes.draw do
 
   resources :makes
 
+  match 'api/cars/:id' => 'api#getbymake'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
