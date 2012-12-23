@@ -1,4 +1,10 @@
 ADC::Application.routes.draw do
+  devise_for :users
+
+  resources :users
+
+  resources :years
+
   resources :cars_products
 
   resources :products
@@ -12,8 +18,8 @@ ADC::Application.routes.draw do
   match 'api/cars/:id' => 'api#getbymake'
   match 'api/categories/:id' => 'api#getcategoriesbycar'
   match 'api/products/:carid/:catid' => 'api#getproductsbycarandcategory'
-
   match 'api/' => 'api#index'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

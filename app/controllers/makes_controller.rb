@@ -1,4 +1,5 @@
 class MakesController < ApplicationController
+
   # GET /makes
   # GET /makes.json
   def index

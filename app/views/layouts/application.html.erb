@@ -16,6 +16,10 @@
           <li class="">
             <a href="/">Home</a>
           </li>
+          <% if signed_in? %>
+          <li class="">
+            <a href="/years">Years</a>
+          </li>
           <li class="">
             <a href="/cars">Cars</a>
           </li>
@@ -31,12 +35,36 @@
           <li class="">
             <a href="/api">api</a>
           </li>
+          <% end %>
         </ul>
       </div>
+
+      <% if signed_in? %>
+          <div class="pull-right">
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+                </ul>
+            </div>
+          </div>
+      <% else %>
+          <div class="pull-right">
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                  <%= link_to "Sign in", new_user_session_path %>
+                </ul>
+            </div>
+          </div>
+      <% end %>
     </div>
+
   </div>
 </div>
+
+
+
 <div class="container">
+<p class="notice"><%= notice %></p>
 <%= yield %>
 </div>
 </body>

@@ -1,7 +1,8 @@
 class Product < ActiveRecord::Base
-  attr_accessible :category_id, :name, :price , :car_ids
+  attr_accessible :category_id, :name, :price , :car_ids, :partsnumber, :image, :description
   belongs_to :category
   has_and_belongs_to_many :cars
+  mount_uploader :image, ImageUploader
 
   require 'set'
   def childrenChecked (make_id)

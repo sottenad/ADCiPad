@@ -1,1 +1,6 @@
-<%= @allCarsWithMake.first.model %>
+<% @allCarsWithMake.each do |car|  %>
+    hello
+    <%= car.model %>
+<% end %>
+
+<%= @allCarsWithMake.to_json %>

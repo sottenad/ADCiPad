@@ -1,4 +1,5 @@
 class ApiController < ApplicationController
+
   def getbymake
     makeID = params[:id]
     @allCarsWithMake = Car.where("make_id = ?", makeID)
