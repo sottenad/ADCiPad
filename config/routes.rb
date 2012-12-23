@@ -1,9 +1,19 @@
 ADC::Application.routes.draw do
+  resources :cars_products
+
+  resources :products
+
+  resources :categories
+
   resources :cars
 
   resources :makes
 
   match 'api/cars/:id' => 'api#getbymake'
+  match 'api/categories/:id' => 'api#getcategoriesbycar'
+  match 'api/products/:carid/:catid' => 'api#getproductsbycarandcategory'
+
+  match 'api/' => 'api#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -54,7 +64,7 @@ ADC::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'cars#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

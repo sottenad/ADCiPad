@@ -45,7 +45,7 @@ class MakesController < ApplicationController
 
     respond_to do |format|
       if @make.save
-        format.html { redirect_to @make, notice: 'Make was successfully created.' }
+        format.html { redirect_to makes_path, notice: 'Make was successfully created.' }
         format.json { render json: @make, status: :created, location: @make }
       else
         format.html { render action: "new" }
