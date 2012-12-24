@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  require 'rmagick'
+
   # GET /products
   # GET /products.json
   def index
@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
   # GET /products/new
   # GET /products/new.json
   def new
+    require 'RMagick'
     @product = Product.new
 
     respond_to do |format|
@@ -35,6 +36,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    require 'RMagick'
     @product = Product.find(params[:id])
   end
 
