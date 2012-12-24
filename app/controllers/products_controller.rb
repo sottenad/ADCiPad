@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  require 'RMagick'
+  require 'rmagick'
   # GET /products
   # GET /products.json
   def index
