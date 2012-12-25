@@ -2,7 +2,7 @@ class ApiController < ApplicationController
 
   def getbymake
     makeID = params[:id]
-    @allCarsWithMake = Car.find_all_by_make(makeID,  :order => 'name')
+    @allCarsWithMake = Car.find(:all, :conditions => { :make_id => makeID},  :order => 'model')
     respond_to do |format|
       format.html # getbymake.html.erb
       format.json { render json: @allCarsWithMake }
