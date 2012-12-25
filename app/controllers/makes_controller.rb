@@ -3,7 +3,7 @@ class MakesController < ApplicationController
   # GET /makes
   # GET /makes.json
   def index
-    @makes = Make.all
+    @makes = Make.all( :order => 'name')
 
     respond_to do |format|
       format.html # getbymake.html.erb
