@@ -10,7 +10,8 @@ gem 'bcrypt-ruby'
 gem 'devise'
 gem 'cancan'
 gem 'carrierwave'
-gem "rmagick", :require => 'RMagick'
+gem 'mini_magick'
+#gem "rmagick", :require => 'RMagick'
 
 # Gems used only for assets and not required
 # in production environments by default.
