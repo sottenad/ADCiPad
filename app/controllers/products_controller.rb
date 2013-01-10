@@ -44,7 +44,8 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(params[:product])
-
+    @product.image = params[:image]
+    @product.save
     respond_to do |format|
       if @product.save
         format.html { redirect_to products_path, notice: 'Product was successfully created.' }
@@ -61,6 +62,9 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     params[:product][:car_ids] ||= []
+    @product.image = params[:image].presence
+
+    @product.save
     respond_to do |format|
       if @product.update_attributes(params[:product])
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }

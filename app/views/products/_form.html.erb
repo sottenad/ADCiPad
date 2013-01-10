@@ -34,27 +34,43 @@
     <div class="field">
       <%= f.label :image %><br />
 
-      <%= f.file_field :image %>
+      <%= f.file_field :image %><br />
+      <%= image_tag @product.image_url(:thumb).to_s %>
     </div>
   </div>
+
+
   <div class="span4">
       <div class="field">
         <%= f.label :car_ids %><br />
-        <ul>
-        <% for make in Make.all() %>
+        <ul id="years">
+          <% for year in Year.all() %>
             <li>
-            <%= check_box_tag "", make.id, @product.childrenChecked(make.id)%>
-            <%= make.name %>
-              <ul>
-                <% for car in Car.where(:make_id => make.id.to_s() ) %>
-                <li>
-                  <%= check_box_tag "product[car_ids][]", car.id, @product.cars.include?(car)%>
-                  <%= car.model %>
-                </li>
+              <%= check_box_tag "", year.id, @product.yearChecked(year.id)%>
+              <span class="collapsed title"><%= year.year %></span>
+
+
+                <ul id="makes">
+                <% for make in Make.all() %>
+
+                    <% if (make.hasCarsWithYear(year.id, make.id)) %>
+                        <li>
+                            <%= check_box_tag "", make.id, @product.childrenChecked(make.id, year.id)%>
+                            <span class="collapsed title"><%= make.name %></span>
+                              <ul>
+                                <% for car in Car.where(:make_id => make.id.to_s(), :year_id => year.id ) %>
+                                <li>
+                                  <%= check_box_tag "product[car_ids][]", car.id, @product.cars.include?(car)%>
+                                  <%= car.model %>
+                                </li>
+                                <% end %>
+                              </ul>
+                        </li>
+                    <%end%>
                 <% end %>
-              </ul>
+                </ul>
             </li>
-        <% end %>
+           <%end%>
         </ul>
       </div>
     <div class="form-actions">

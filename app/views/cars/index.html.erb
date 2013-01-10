@@ -2,9 +2,11 @@
 <%= link_to 'New Car', new_car_path, :class=>"btn btn-primary" %>
 <table class="table table-striped">
   <tr>
+    <th>Year</th>
     <th>Model</th>
-    <th>Trim</th>
     <th>Make</th>
+    <th>Trim</th>
+
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +14,11 @@
 
 <% @cars.each do |car| %>
   <tr>
+    <td><%= car.year.year %></td>
     <td><%= car.model %></td>
-    <td><%= car.trim %></td>
     <td><%= car.make.name %></td>
+    <td><%= car.trim %></td>
+
     <td><%= link_to 'Show', car %></td>
     <td><%= link_to 'Edit', edit_car_path(car) %></td>
     <td><%= link_to 'Destroy', car, confirm: 'Are you sure?', method: :delete %></td>

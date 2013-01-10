@@ -5,16 +5,22 @@ class Product < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   require 'set'
-  def childrenChecked (make_id)
 
-    makeChildren = Car.where(:make_id => make_id.to_s())
+  def childrenChecked (make_id, year_id)
+
+    makeChildren = Car.where(:make_id => make_id.to_s(), :year_id => year_id)
     if makeChildren.length >0
        selectedCars = self.car_ids
        totalCars = makeChildren.all(:select => :id).collect(&:id)
-       puts "/////////////selected:" +selectedCars.to_s()
-       puts "/////////////total:" +totalCars.to_s()
-
        return selectedCars.align(totalCars)
+    end
+  end
+  def yearChecked (year_id)
+    yearChildren = Car.where(:year_id => year_id.to_s())
+    if yearChildren.length > 0
+      selectedCars = self.car_ids
+      totalCars = yearChildren.all(:select => :id).collect(&:id)
+      return selectedCars.align(totalCars)
 
     end
   end

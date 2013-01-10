@@ -1,0 +1,15 @@
+#makes ul{
+    display:none;
+}
+.title{
+    cursor:pointer;
+    display:inline-block;
+    background:url(/assets/plus.png) no-repeat  right;
+    width:200px;
+}
+.title.open{
+    background:url(/assets/minus.png) no-repeat  right;
+}
+.edit_product textarea{
+    width:500px;
+}
