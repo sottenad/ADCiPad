@@ -31,4 +31,13 @@ class ApiController < ApplicationController
       format.json { render json: @products }
     end
   end
+
+  def getyears
+    @years = Year.all
+    respond_to do |format|
+      format.html # getyears.html.erb
+      format.json { render json: @years }
+    end
+
+  end
 end
