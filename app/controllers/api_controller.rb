@@ -1,6 +1,26 @@
 class ApiController < ApplicationController
 
-  def getbymake
+
+  def getyears
+    @years = Year.all
+    respond_to do |format|
+      format.html # getyears.html.erb
+      format.json { render json: @years }
+    end
+  end
+
+  def getmakesbyyear
+    yearID = params[:id]
+    carsWithYear = Car.where(:year_id => yearID)
+    @uniqueMakes = carsWithYear.map(&:make_id).uniq
+    @makeObjects = Make.where(:id => @uniqueMakes).order('name ASC')
+    respond_to do |format|
+      format.html # getbymake.html.erb
+      format.json { render json: @makeObjects }
+    end
+  end
+
+  def getcarsbymake
     makeID = params[:id]
     @allCarsWithMake = Car.find(:all, :conditions => { :make_id => makeID},  :order => 'model')
     respond_to do |format|
@@ -32,12 +52,4 @@ class ApiController < ApplicationController
     end
   end
 
-  def getyears
-    @years = Year.all
-    respond_to do |format|
-      format.html # getyears.html.erb
-      format.json { render json: @years }
-    end
-
-  end
 end

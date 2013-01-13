@@ -16,7 +16,8 @@ ADC::Application.routes.draw do
   resources :makes
 
   match 'api/years' => 'api#getyears'
-  match 'api/cars/:id' => 'api#getbymake'
+  match 'api/makes/:id' => 'api#getmakesbyyear'
+  match 'api/cars/:id' => 'api#getcarsbymake'
   match 'api/categories/:id' => 'api#getcategoriesbycar'
   match 'api/products/:carid/:catid' => 'api#getproductsbycarandcategory'
   match 'api/' => 'api#index'
