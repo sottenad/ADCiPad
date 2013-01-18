@@ -14,7 +14,10 @@
 
 <% @cars.each do |car| %>
   <tr>
-    <td><%= car.year.year %></td>
+    <td><% if(!car.year.year.nil?) %>
+    		<%= car.year.year %>
+    	<% end %>
+    </td>
     <td><%= car.model %></td>
     <td><%= car.make.name %></td>
     <td><%= car.trim %></td>
