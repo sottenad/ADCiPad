@@ -1,6 +1,8 @@
 ADC::Application.routes.draw do
-  devise_for :users
 
+
+  devise_for :users
+  
   resources :users
 
   resources :years
@@ -15,12 +17,15 @@ ADC::Application.routes.draw do
 
   resources :makes
 
+  match 'token/gettoken' => 'token#gettoken'
+  
   match 'api/years' => 'api#getyears'
   match 'api/makes/:id' => 'api#getmakesbyyear'
   match 'api/cars/:id' => 'api#getcarsbymake'
   match 'api/categories/:id' => 'api#getcategoriesbycar'
   match 'api/products/:carid/:catid' => 'api#getproductsbycarandcategory'
   match 'api/' => 'api#index'
+
 
 
   # The priority is based upon order of creation:
@@ -80,3 +85,4 @@ ADC::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 end
+

@@ -1,5 +1,10 @@
 API Methods:
 <ul>
-  <li>getbymake/:id</li>
-  <li>getbymodel/:id</li>
+  <li>match 'token/gettoken' => 'token#gettoken'</li>
+  <li>match 'api/years' => 'api#getyears'</li>
+  <li>match 'api/makes/:id' => 'api#getmakesbyyear'</li>
+  <li>match 'api/cars/:id' => 'api#getcarsbymake'</li>
+  <li>match 'api/categories/:id' => 'api#getcategoriesbycar'</li>
+  <li>match 'api/products/:carid/:catid' => 'api#getproductsbycarandcategory'</li>
+  <li>match 'api/' => 'api#index'</li>
 </ul>
