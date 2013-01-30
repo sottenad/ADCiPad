@@ -1,7 +1,8 @@
 class Product < ActiveRecord::Base
-  attr_accessible :category_id, :name, :price , :car_ids, :partsnumber, :image, :description
+  attr_accessible :category_id, :name, :price , :car_ids, :partsnumber, :image, :description, :youtube_code, :manufacturer_id
   belongs_to :category
   has_and_belongs_to_many :cars
+  has_one :manufacturer
   mount_uploader :image, ImageUploader
 
   require 'set'

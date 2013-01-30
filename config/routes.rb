@@ -1,6 +1,10 @@
 ADC::Application.routes.draw do
 
 
+  resources :subcategories
+
+  resources :manufacturers
+
   devise_for :users, :controllers => {:sessions => 'sessions'}
   
   resources :users

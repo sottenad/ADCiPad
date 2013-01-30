@@ -17,7 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :category_id %><br />
-    <%= f.collection_select :category_id, Category.all,:id,:name %>
+    <%= f.select :category_id, nested_set_options(Category, @category) {|i| "#{'-' * i.level} #{i.name}" } %>
+  </div>
+  <div class="field">
+    <%= f.label :manufacturer_id %><br />
+    <%= f.collection_select :manufacturer_id, Manufacturer.all,:id,:name %>
   </div>
   <div class="field">
     <%= f.label :price %><br />
@@ -36,9 +40,13 @@
 
       <%= f.file_field :image %><br />
       <% if !@product.image_url(:thumb).nil? %>
-      <%= image_tag @product.image_url(:thumb).to_s %>
+      	<%= image_tag @product.image_url(:thumb).to_s %>
       <% end %>
     </div>
+  <div class="field">
+    <%= f.label :youtube_code %><br />
+    <%= f.text_area :youtube_code %>
+  </div>
   </div>
 
 

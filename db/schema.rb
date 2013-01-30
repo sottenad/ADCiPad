@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130116021421) do
+ActiveRecord::Schema.define(:version => 20130130042626) do
 
   create_table "cars", :force => true do |t|
     t.string   "model"
@@ -32,12 +32,20 @@ ActiveRecord::Schema.define(:version => 20130116021421) do
   add_index "cars_products", ["car_id", "product_id"], :name => "index_cars_products_on_car_id_and_product_id"
 
   create_table "categories", :force => true do |t|
+    t.string  "name"
+    t.integer "parent_id"
+    t.integer "lft"
+    t.integer "rgt"
+    t.integer "depth"
+  end
+
+  create_table "makes", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "makes", :force => true do |t|
+  create_table "manufacturers", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -48,12 +56,14 @@ ActiveRecord::Schema.define(:version => 20130116021421) do
     t.string   "category_id"
     t.integer  "price"
     t.string   "car_ids"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "picture"
     t.text     "description"
     t.string   "partsnumber"
     t.string   "image"
+    t.text     "youtube_code"
+    t.string   "manufacturer_id"
   end
 
   create_table "users", :force => true do |t|
