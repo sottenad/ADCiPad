@@ -1,10 +1,10 @@
-<h1>Listing cars</h1>
-<%= link_to 'New Car', new_car_path, :class=>"btn btn-primary" %>
-<table class="table table-striped">
+<h1>Cars <%= link_to 'New Car', new_car_path, :class=>"btn btn-primary" %></h1>
+
+<table class="table table-hover table-bordered">
   <tr>
     <th>Year</th>
-    <th>Model</th>
     <th>Make</th>
+    <th>Model</th>
     <th>Trim</th>
 
     <th></th>
@@ -18,17 +18,15 @@
     		<%= car.year.year %>
     	<% end %>
     </td>
-    <td><%= car.model %></td>
     <td><%= car.make.name %></td>
+    <td><%= car.model %></td>
     <td><%= car.trim %></td>
 
-    <td><%= link_to 'Show', car %></td>
-    <td><%= link_to 'Edit', edit_car_path(car) %></td>
-    <td><%= link_to 'Destroy', car, confirm: 'Are you sure?', method: :delete %></td>
+    <td width="5%"><%= link_to 'Show', car %></td>
+    <td width="5%"><%= link_to 'Edit', edit_car_path(car) %></td>
+    <td width="5%"><%= link_to 'Destroy', car, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
 
-<%= link_to 'New Car', new_car_path %>
