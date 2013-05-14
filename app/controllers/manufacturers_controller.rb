@@ -44,7 +44,7 @@ class ManufacturersController < ApplicationController
 
     respond_to do |format|
       if @manufacturer.save
-        format.html { redirect_to @manufacturer, notice: 'Manufacturer was successfully created.' }
+        format.html { redirect_to :action=>"index", notice: 'Manufacturer was successfully created.' }
         format.json { render json: @manufacturer, status: :created, location: @manufacturer }
       else
         format.html { render action: "new" }
