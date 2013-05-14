@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if controller_name != 'sessions' %>
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
@@ -34,9 +35,6 @@
           </li>
           <li class="">
             <a href="/manufacturers">Manufacturers</a>
-          </li>
-          <li class="">
-            <a href="/subcategories">Subcategories</a>
           </li>
           <li class="">
             <a href="/api">api</a>
@@ -77,7 +75,7 @@
   </div>
 </div>
 
-
+<% end %>
 
 <div class="container">
 <p class="notice"><%= notice %></p>
