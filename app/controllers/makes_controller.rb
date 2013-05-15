@@ -43,7 +43,8 @@ class MakesController < ApplicationController
   # POST /makes.json
   def create
     @make = Make.new(params[:make])
-
+    @make.image = params[:image]
+    @make.save
     respond_to do |format|
       if @make.save
         format.html { redirect_to :action=>"index", notice: 'Make was successfully created.' }
