@@ -28,6 +28,16 @@ class ApiController < ApplicationController
       format.json { render json: @allCarsWithMake }
     end
   end
+  
+    def getcarsbymakeandyear
+    makeID = params[:makeid]
+    yearID = params[:yearid]
+    @allCarsWithMake = Car.find(:all, :conditions => { :make_id => makeID, :year_id => yearID},  :order => 'model')
+    respond_to do |format|
+      format.html # getbymake.html.erb
+      format.json { render json: @allCarsWithMake }
+    end
+  end
 
   def getcategoriesbycar
     carID = params[:id]
