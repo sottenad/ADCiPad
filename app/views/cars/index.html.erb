@@ -7,6 +7,7 @@
     <th data-placeholder="">Make</th>
     <th data-placeholder="">Model</th>
     <th data-placeholder="">Trim</th>
+    <th>Image</th>
 
     <th></th>
     <th></th>
@@ -28,6 +29,12 @@
     </td>
     <td><%= car.model %></td>
     <td><%= car.trim %></td>
+    <td>
+		<% if(!car.image_url.nil?) %>
+			<%= image_tag car.image_url(:thumb).to_s %>
+		<% end %>
+	    
+    </td>
 
     <td width="5%"><%= link_to 'Show', car %></td>
     <td width="5%"><%= link_to 'Edit', edit_car_path(car) %></td>
