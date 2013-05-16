@@ -13,6 +13,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 #gem "rmagick", :require => 'RMagick'
 gem 'awesome_nested_set'
+gem 'acts_as_tree'
 
 
 # Gems used only for assets and not required

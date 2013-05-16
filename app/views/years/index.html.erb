@@ -1,13 +1,15 @@
 <h1>Model Years <%= link_to 'New Year', new_year_path, :class=>"btn btn-primary"  %></h1>
 
-<table class="table table-hover table-bordered">
+<table class="table table-hover table-bordered tablesorter">
+  <thead>
   <tr>
     <th>Year</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+  </thead>
+  <tbody>
 <% @years.each do |year| %>
   <tr>
     <td width="80%"><%= year.year %></td>
@@ -16,6 +18,7 @@
     <td><%= link_to 'Destroy', year, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
+  </tbody>
 </table>
 
 <br />

@@ -27,6 +27,14 @@
     <%= f.label :trim %><br />
     <%= f.text_field :trim %>
   </div>
+    <div class="field">
+	  <%= f.label :image %><br />
+	
+	  <%= f.file_field :image %><br />
+	  <% if !@car.image_url(:thumb).nil? %>
+	  	<%= image_tag @car.image_url(:thumb).to_s %>
+	  <% end %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

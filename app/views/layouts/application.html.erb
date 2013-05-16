@@ -5,6 +5,14 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script>
+  	$(function(){
+	  	var myTable = $('.tablesorter');
+	  	if(myTable.length >0){
+		  	myTable.tablesorter();
+	  	}
+  	})
+  </script>
 </head>
 <body>
 <% if controller_name != 'sessions' %>

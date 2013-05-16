@@ -13,3 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require jquery_tablesorter_min
+//= require jquery_tablesorter_pager
+//= require jquery_tablesorter_widgets_min

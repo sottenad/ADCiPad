@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515160719) do
+ActiveRecord::Schema.define(:version => 20130516135304) do
 
   create_table "cars", :force => true do |t|
     t.string   "model"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130515160719) do
     t.integer  "year"
     t.string   "product_id"
     t.integer  "year_id"
+    t.string   "image"
   end
 
   create_table "cars_products", :id => false, :force => true do |t|

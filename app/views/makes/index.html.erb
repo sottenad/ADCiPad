@@ -1,13 +1,15 @@
 <h1>Makes <%= link_to 'New Make', new_make_path, :class => "btn btn-primary" %></h1>
 
-<table class="table table-hover table-bordered">
+<table class="table table-hover table-bordered tablesorter">
+  <thead>
   <tr>
     <th>Name</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+  </thead>
+  <tbody>
 <% @makes.each do |make| %>
   <tr>
     <td width="80%"><%= make.name %></td>
@@ -16,6 +18,7 @@
     <td><%= link_to 'Destroy', make, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
+  </tbody>
 </table>
 
 <br />

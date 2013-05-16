@@ -12,7 +12,13 @@
 
 <p>
   <b>Make:</b>
-  <%= @car.make %>
+  <%= @car.make.name %>
+</p>
+<p>
+  <b>Image:</b>
+  <% if(!@car.image_url.nil?) %>
+  <%= image_tag @car.image_url(:thumb).to_s %>
+  <% end %>
 </p>
 
 

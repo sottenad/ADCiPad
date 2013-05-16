@@ -1,24 +1,31 @@
 <h1>Cars <%= link_to 'New Car', new_car_path, :class=>"btn btn-primary" %></h1>
 
-<table class="table table-hover table-bordered">
+<table class="table table-hover table-bordered tablesorter">
+	<thead>
   <tr>
-    <th>Year</th>
-    <th>Make</th>
-    <th>Model</th>
-    <th>Trim</th>
+    <th data-placeholder="">Year</th>
+    <th data-placeholder="">Make</th>
+    <th data-placeholder="">Model</th>
+    <th data-placeholder="">Trim</th>
 
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+	</thead>
+<tbody>
 <% @cars.each do |car| %>
   <tr>
-    <td><% if(!car.year.year.nil?) %>
+    <td>
+    	<% if(!car.year.year.nil?) %>
     		<%= car.year.year %>
     	<% end %>
     </td>
-    <td><%= car.make.name %></td>
+    <td>	
+    	<% if(!car.make.nil?)%>
+    	<%= car.make.name %>
+    	<% end %>
+    </td>
     <td><%= car.model %></td>
     <td><%= car.trim %></td>
 
@@ -27,6 +34,7 @@
     <td width="5%"><%= link_to 'Destroy', car, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
 
 

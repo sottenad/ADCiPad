@@ -1,21 +1,35 @@
 <h1>Categories <%= link_to 'New Category', new_category_path, :class=>"btn btn-primary" %></h1>
+<ul>
 
-<table class="table table-hover table-bordered">
+</ul>
+
+<table class="table table-hover table-bordered tablesorter">
+  <thead>
   <tr>
     <th>Name</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
+  </thead>
+  <tbody>
 
-<% @categories.each do |category| %>
-  <tr>
-    <td width="80%"><%= category.name %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+
+	<% Category.each_with_level(Category.root.self_and_descendants) do |category, level| %> 
+		<tr>
+			<td width="80%">
+				<%level.times do |i|%> - <% end %> 
+				<%= category.name %>
+			</td>
+			<td><%= link_to 'Show', category %></td>
+			<td><%= link_to 'Edit', edit_category_path(category) %></td>
+			<td><%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete %></td>
+	
+		</tr>
+		
+	<% end %>
+ 
+  </tbody>
 </table>
 
 <br />
