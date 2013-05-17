@@ -57,6 +57,7 @@ class CarsController < ApplicationController
   # PUT /cars/1
   # PUT /cars/1.json
   def update
+
     @car = Car.find(params[:id])
 
     respond_to do |format|

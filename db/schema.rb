@@ -11,18 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130516135304) do
+ActiveRecord::Schema.define(:version => 20130517145256) do
 
   create_table "cars", :force => true do |t|
     t.string   "model"
     t.string   "trim"
     t.string   "make_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "year"
     t.string   "product_id"
     t.integer  "year_id"
     t.string   "image"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "cars_products", :id => false, :force => true do |t|
