@@ -4,7 +4,9 @@
   <b>Name:</b>
   <%= @manufacturer.name %>
 </p>
-
+<p>
+<%= image_tag @manufacturer.image.url(:thumb).to_s %>
+</p>
 
 <%= link_to 'Edit', edit_manufacturer_path(@manufacturer) %> |
 <%= link_to 'Back', manufacturers_path %>

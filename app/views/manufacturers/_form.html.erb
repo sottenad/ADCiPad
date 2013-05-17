@@ -15,6 +15,13 @@
     <%= f.label :name %><br />
     <%= f.text_field :name, :autofocus=>"autofocus"  %>
   </div>
+  <div class="field">
+	  <%= f.label :image %><br />
+	  <%= f.file_field :image %><br />
+	  <% if !@manufacturer.image.url(:thumb).nil? %>
+	  	<%= image_tag @manufacturer.image.url(:thumb).to_s %>
+	  <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

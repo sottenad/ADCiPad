@@ -4,6 +4,7 @@
   <thead>
   <tr>
     <th>Name</th>
+    <th>Image</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,7 @@
 <% @manufacturers.each do |manufacturer| %>
   <tr>
     <td width="80%"><%= manufacturer.name %></td>
+    <td width="40%"><%= image_tag manufacturer.image.url(:thumb).to_s %></td>
     <td><%= link_to 'Show', manufacturer %></td>
     <td><%= link_to 'Edit', edit_manufacturer_path(manufacturer) %></td>
     <td><%= link_to 'Destroy', manufacturer, confirm: 'Are you sure?', method: :delete %></td>
