@@ -30,8 +30,8 @@
     <td><%= car.model %></td>
     <td><%= car.trim %></td>
     <td>
-		<% if(!car.image_url.nil?) %>
-			<%= image_tag car.image_url(:thumb).to_s %>
+		<% if(!car.image.url.nil?) %>
+			<%= image_tag car.image.url(:thumb).to_s %>
 		<% end %>
 	    
     </td>
