@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130517145256) do
+ActiveRecord::Schema.define(:version => 20130517153011) do
 
   create_table "cars", :force => true do |t|
     t.string   "model"
@@ -46,9 +46,13 @@ ActiveRecord::Schema.define(:version => 20130517145256) do
 
   create_table "makes", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "image"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "manufacturers", :force => true do |t|
@@ -62,14 +66,18 @@ ActiveRecord::Schema.define(:version => 20130517145256) do
     t.string   "category_id"
     t.integer  "price"
     t.string   "car_ids"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "picture"
     t.text     "description"
     t.string   "partsnumber"
     t.string   "image"
     t.text     "youtube_code"
     t.string   "manufacturer_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", :force => true do |t|

@@ -15,12 +15,12 @@
     <%= f.label :name %><br />
     <%= f.text_field :name, :autofocus=>"autofocus"  %>
   </div>
-  <div class="field">
+    <div class="field">
 	  <%= f.label :image %><br />
 	
 	  <%= f.file_field :image %><br />
-	  <% if !@make.image_url(:thumb).nil? %>
-	  	<%= image_tag @make.image_url(:thumb).to_s %>
+	  <% if !@make.image.url(:thumb).nil? %>
+	  	<%= image_tag @make.image.url(:thumb).to_s %>
 	  <% end %>
   </div>
   <div class="actions">

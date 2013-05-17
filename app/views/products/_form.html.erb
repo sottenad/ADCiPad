@@ -36,13 +36,13 @@
     <%= f.text_area :description %>
   </div>
     <div class="field">
-      <%= f.label :image %><br />
-
-      <%= f.file_field :image %><br />
-      <% if !@product.image_url(:thumb).nil? %>
-      	<%= image_tag @product.image_url(:thumb).to_s %>
-      <% end %>
-    </div>
+	  <%= f.label :image %><br />
+	
+	  <%= f.file_field :image %><br />
+	  <% if !@product.image.url(:thumb).nil? %>
+	  	<%= image_tag @product.image.url(:thumb).to_s %>
+	  <% end %>
+  </div>
   <div class="field">
     <label>Youtube Embed Code
     <%= f.text_area :youtube_code,:rows=>5 %>

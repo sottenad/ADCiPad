@@ -6,8 +6,7 @@
 </p>
 
 <p>
-  <%= image_tag @make.image_url(:thumb).to_s %>
-
+<%= image_tag @make.image.url(:thumb).to_s %>
 </p>
 
 <%= link_to 'Edit', edit_make_path(@make) %> |
