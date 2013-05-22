@@ -3,7 +3,7 @@
 <table class="table table-hover table-bordered tablesorter">
 	<thead>
   <tr>
-    <th data-placeholder="">Year</th>
+    <th data-placeholder="">Years</th>
     <th data-placeholder="">Make</th>
     <th data-placeholder="">Model</th>
     <th data-placeholder="">Trim</th>
@@ -18,8 +18,8 @@
 <% @cars.each do |car| %>
   <tr>
     <td>
-    	<% if(!car.year.year.nil?) %>
-    		<%= car.year.year %>
+    	<% if(!car.years.nil?) %>
+    
     	<% end %>
     </td>
     <td>	

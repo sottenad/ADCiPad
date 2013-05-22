@@ -1,4 +1,4 @@
-<%= form_for @car, :html => {:multipart => true}  do |f| %>
+<%= form_for @car,  :html => {:multipart => true, :class => "form-horizontal"}  do |f| %>
   <% if @car.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
@@ -10,33 +10,53 @@
       </ul>
     </div>
   <% end %>
-    <div class="field">
-      <%= f.label :year_id %><br />
-      <%= f.collection_select :year_id, Year.all,:id,:year %>
-    </div>
-    <div class="field">
-      <%= f.label :make %><br />
-      <%= f.collection_select :make_id, Make.all,:id,:name %>
-    </div>
-
-  <div class="field">
-    <%= f.label :model %><br />
-    <%= f.text_field :model %>
-  </div>
-  <div class="field">
-    <%= f.label :trim %><br />
-    <%= f.text_field :trim %>
-  </div>
-    <div class="field">
-	  <%= f.label :image %><br />
-	
-	  <%= f.file_field :image %><br />
-	  <% if !@car.image.url(:thumb).nil? %>
-	  	<%= image_tag @car.image.url(:thumb).to_s %>
+    <div class="control-group">
+      <%= f.label :years, :class => "control-label" %>
+      <div class="controls">
+      <% Year.all.each do |year| %>
+	    <%= hidden_field_tag "car[year_ids][]" %>
+	    <label for="car_year_ids_<%=year.id%>", class="checkbox">
+	    	<%= check_box_tag "car[year_ids][]", year.id, @car.years.include?(year), :id => "car_year_ids_#{year.id}" %>
+	    	<%= year.year %>
+	    </label>
 	  <% end %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :make, :class => "control-label"  %>
+      <div class="controls">
+      	<%= f.collection_select :make_id, Make.all,:id,:name %>
+      </div>
+    </div>
+
+  <div class="control-group">
+    <%= f.label :model, :class => "control-label"  %>
+    <div class="controls">
+	    <%= f.text_field :model %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :trim, :class => "control-label"  %>
+    <div class="controls">
+    	<%= f.text_field :trim %>
+    </div>
+  </div>
+    <div class="control-group">
+	  <%= f.label :image, :class => "control-label"  %>
+	  <div class="controls">
+	
+		  <%= f.file_field :image %><br />
+		  <% if !@car.image.url(:thumb).nil? %>
+		  	<%= image_tag @car.image.url(:thumb).to_s %>
+		  <% end %>
+	  </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  	
+  <div class="control-group">
+	 <div class="controls">
+		 <%= f.button "Create Car", :class => 'btn btn-primary' %>
+	 </div>
   </div>
 <% end %>

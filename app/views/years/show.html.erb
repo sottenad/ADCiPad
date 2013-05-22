@@ -4,6 +4,10 @@
   <b>Year:</b>
   <%= @year.year %>
 </p>
+<p>
+  <b>Image:</b>
+  <%= image_tag @year.image.url(:thumb).to_s %>
+</p>
 
 
 <%= link_to 'Edit', edit_year_path(@year) %> |

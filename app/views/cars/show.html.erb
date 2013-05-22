@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+	<strong>Years: </strong>
+	<% @car.years.each do |year| %>
+		<%= year.year%>
+	<% end %>
+	
+</p>
+<p>
   <b>Model:</b>
   <%= @car.model %>
 </p>

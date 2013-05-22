@@ -13,7 +13,7 @@
   <tbody>
 <% @makes.each do |make| %>
   <tr>
-    <td width="80%"><%= make.name %></td>
+    <td width="40%"><%= make.name %></td>
     <% if !make.image.url(:thumb).nil? %>
     <td width="40%"><%= image_tag make.image.url(:thumb).to_s %></td>
     <%end%>

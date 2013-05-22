@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130517154632) do
+ActiveRecord::Schema.define(:version => 20130522153723) do
 
   create_table "cars", :force => true do |t|
     t.string   "model"
@@ -19,9 +19,7 @@ ActiveRecord::Schema.define(:version => 20130517154632) do
     t.string   "make_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-    t.integer  "year"
     t.string   "product_id"
-    t.integer  "year_id"
     t.string   "image"
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -29,12 +27,15 @@ ActiveRecord::Schema.define(:version => 20130517154632) do
     t.datetime "image_updated_at"
   end
 
-  create_table "cars_products", :id => false, :force => true do |t|
+  create_table "cars_products", :force => true do |t|
     t.integer "car_id"
     t.integer "product_id"
   end
 
-  add_index "cars_products", ["car_id", "product_id"], :name => "index_cars_products_on_car_id_and_product_id"
+  create_table "cars_years", :force => true do |t|
+    t.integer "car_id"
+    t.integer "year_id"
+  end
 
   create_table "categories", :force => true do |t|
     t.string  "name"
@@ -107,8 +108,12 @@ ActiveRecord::Schema.define(:version => 20130517154632) do
 
   create_table "years", :force => true do |t|
     t.integer  "year"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
 end
