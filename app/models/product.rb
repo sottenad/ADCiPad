@@ -11,17 +11,18 @@ class Product < ActiveRecord::Base
 
   require 'set'
 
-  def childrenChecked (make_id, year_id)
+  def childrenChecked (makeID, yearID)
 
-    makeChildren = Car.where(:make_id => make_id.to_s(), :year_id => year_id)
+    makeChildren = Car.includes(:years).where(years:{id: yearID}, make_id: makeID.to_s())
     if makeChildren.length >0
        selectedCars = self.car_ids
        totalCars = makeChildren.all(:select => :id).collect(&:id)
        return selectedCars.align(totalCars)
     end
   end
+  
   def yearChecked (year_id)
-    yearChildren = Car.where(:year_id => year_id.to_s())
+    yearChildren = Car.includes(:years).where(years:{id: year_id})
     if yearChildren.length > 0
       selectedCars = self.car_ids
       totalCars = yearChildren.all(:select => :id).collect(&:id)

@@ -68,7 +68,7 @@
                             <%= check_box_tag "", make.id, @product.childrenChecked(make.id, year.id)%>
                             <span class="collapsed title"><%= make.name %></span>
                               <ul>
-                                <% for car in Car.where(:make_id => make.id.to_s(), :year_id => year.id ) %>
+                                <% for car in Car.includes(:years).where(years:{id: year.id}, make_id: make.id.to_s()) %>
                                 <li>
                                   <%= check_box_tag "product[car_ids][]", car.id, @product.cars.include?(car)%>
                                   <%= car.model %>
@@ -92,3 +92,4 @@
 
 
 <% end %>
+

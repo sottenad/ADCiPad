@@ -6,8 +6,9 @@ class Make < ActiveRecord::Base
 	  thumb: '100x100>', square: '200x200#', medium: '300x300>'
   }
 
-  def hasCarsWithYear(year_id, make_id)
-    carsWithProd = Car.where(:make_id => make_id.to_s, :year_id => year_id.to_s)
+  def hasCarsWithYear(yearID, makeID)
+  	#Car.includes(:years).where(years:{id: year_id}, make_id: make_id )
+    carsWithProd = Car.includes(:years).where(years:{id: yearID}, make_id: makeID.to_s())
     if carsWithProd.count > 0
       return true
     end

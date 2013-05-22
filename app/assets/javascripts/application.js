@@ -16,3 +16,4 @@
 //= require jquery_tablesorter_min
 //= require jquery_tablesorter_pager
 //= require jquery_tablesorter_widgets_min
+//= require products
