@@ -50,28 +50,15 @@
           <li class="">
             <a href="/api">api</a>
           </li>
+           <li class="">
+            <a href="/users">users</a>
+          </li>
           <% end %>
         </ul>
       </div>
 
       <% if signed_in? %>
-          <div class="pull-right">
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                  <li class="dropdown">
-                  	<% if !current_user.username.nil? %>
-                  	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username %><b class="caret"></b></a>
-                  	<% elsif  !current_user.email.nil? %>
-                  	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %><b class="caret"></b></a>
-                  	<% end %>
-                  	<ul class="dropdown-menu">
-                  		<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-                  		<li><%= link_to "Users", users_path %></li>
-                  	</ul>
-                  </li>
-                </ul>
-            </div>
-          </div>
+          
       <% else %>
           <div class="pull-right">
             <div class="nav-collapse collapse">
