@@ -3,6 +3,7 @@ class ApiController < ApplicationController
 
   def getyears
     @years = Year.all
+
     respond_to do |format|
       format.html # getyears.html.erb
       format.json { render json: @years }
