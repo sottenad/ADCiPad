@@ -7,6 +7,7 @@
   <thead>
   <tr>
     <th>Name</th>
+    <th>Image</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,9 +18,12 @@
 
 	<% Category.each_with_level(Category.root.self_and_descendants) do |category, level| %> 
 		<tr>
-			<td width="80%">
+			<td width="40%">
 				<%level.times do |i|%> - <% end %> 
 				<%= category.name %>
+			</td>
+			<td>
+				<%= image_tag category.image.url(:thumb).to_s() %>
 			</td>
 			<td><%= link_to 'Show', category %></td>
 			<td><%= link_to 'Edit', edit_category_path(category) %></td>
