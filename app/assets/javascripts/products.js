@@ -1,7 +1,9 @@
 $(function(){ 
     $('#years li input').change(function(){
-        $(this).parent().find(':checkbox').attr('checked', this.checked);
+    	console.log(this.checked);
+        $(this).parent().find('input[type=checkbox]').prop('checked', this.checked);
     });
+    
     $('#years .title').click(function(){
     	if($(this).hasClass('open')){
 	    	$(this).removeClass('open');
