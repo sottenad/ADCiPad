@@ -12,8 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :username %><br />
+    <%= f.label :username %>
     <%= f.text_field :username %>
+  </div>
+    <div class="field">
+    <%= f.label :price_multiplier %>
+    <small>100 is no change, 105 would be 5% above the price entered.</small> <br />
+    <%= f.number_field :price_multiplier %>
   </div>
   <div class="actions">
     <%= f.submit %>

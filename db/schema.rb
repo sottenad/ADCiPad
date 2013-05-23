@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130523053701) do
+ActiveRecord::Schema.define(:version => 20130523144901) do
 
   create_table "cars", :force => true do |t|
     t.string   "model"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20130523053701) do
     t.string   "authentication_token"
     t.string   "token_authenticatable"
     t.string   "email"
+    t.integer  "price_multiplier"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
