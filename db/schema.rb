@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130523051852) do
+ActiveRecord::Schema.define(:version => 20130523053701) do
 
   create_table "cars", :force => true do |t|
     t.string   "model"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20130523051852) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "image"
   end
 
   create_table "makes", :force => true do |t|
@@ -68,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20130523051852) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "image"
   end
 
   create_table "products", :force => true do |t|
@@ -118,6 +120,7 @@ ActiveRecord::Schema.define(:version => 20130523051852) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "image"
   end
 
 end
