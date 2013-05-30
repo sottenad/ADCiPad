@@ -63,6 +63,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     params[:product][:car_ids] ||= []
     @product.image = params[:image] || @product.image
+    @product.image_2 = params[:image_2] || @product.image_2
 
     @product.save
     respond_to do |format|
