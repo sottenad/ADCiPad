@@ -62,7 +62,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     params[:product][:car_ids] ||= []
-    @product.image = params[:image].presence
+    @product.image = params[:image] || @product.image
 
     @product.save
     respond_to do |format|

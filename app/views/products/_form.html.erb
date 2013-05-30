@@ -48,7 +48,7 @@
 	
 	  <%= f.file_field :image_2 %><br />
 	  <% if !@product.image.url(:thumb).nil? %>
-	  	<%= image_tag @product.image.url(:thumb).to_s %>
+	  	<%= image_tag @product.image_2.url(:thumb).to_s %>
 	  <% end %>
   </div>
   <div class="field">
