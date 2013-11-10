@@ -17,6 +17,7 @@ development:
   encoding: unicode
   database: ADC_Development
   pool: 5
+  host: localhost
   username: steveo
   password: stepheno
 

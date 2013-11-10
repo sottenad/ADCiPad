@@ -1,16 +1,11 @@
 class Product < ActiveRecord::Base
-  attr_accessible :category_id, :name, :price , :car_ids, :partsnumber, :image, :description, :youtube_code, :manufacturer_id, :image_2
+  attr_accessible :category_id, :name, :price , :car_ids, :partsnumber, :description, :youtube_code, :manufacturer_id, :product_images
   belongs_to :category
   has_and_belongs_to_many :cars
   has_one :manufacturer
-  has_attached_file :image,
-   :styles =>{
-	  thumb: '100x100>', square: '200x200#', medium: '300x300>'
-  }
-  has_attached_file :image_2,
-   :styles =>{
-	  thumb: '100x100>', square: '200x200#', medium: '300x300>'
-  }
+  has_many :product_images, :dependent => :destroy
+  
+  accepts_nested_attributes_for :product_images, :reject_if => lambda { |t| t['product_image'].nil? }
 
   def thumbnail
   	return self.image.url(:medium)
@@ -23,6 +18,7 @@ class Product < ActiveRecord::Base
   end
 
   require 'set'
+
 
   def childrenChecked (makeID, yearID)
 

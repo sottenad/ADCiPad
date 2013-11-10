@@ -1,5 +1,7 @@
 class SessionsController < Devise::SessionsController
   
+  respond_to :json
+  
   def create
     resource = warden.authenticate!(:scope => resource_name, :recall => :failure)
     return sign_in_and_redirect(resource_name, resource)

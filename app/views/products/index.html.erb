@@ -19,7 +19,7 @@
     <td><%= product.category.name %></td>
     <td><%= product.name %></td>
     <td><%= product.price %></td>
-    <td><%= image_tag product.image.url(:thumb).to_s %></td>
+    <td><%= image_tag product.product_images.first.url(:thumb).to_s %></td>
     <td width="5%"><%= link_to 'Show', product %></td>
     <td width="5%"><%= link_to 'Edit', edit_product_path(product) %></td>
     <td width="5%"><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
