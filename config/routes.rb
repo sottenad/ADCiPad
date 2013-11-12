@@ -3,11 +3,22 @@ ADC::Application.routes.draw do
   match 'token/gettoken' => 'token#gettoken'
   
   match 'api/years' => 'api#getyears'
+  
   match 'api/makes/:id' => 'api#getmakesbyyear'
+  match 'api/makes' => 'api#getmakesbyyear'
+  
   match 'api/cars/:id' => 'api#getcarsbymake'
+  match 'api/cars' => 'api#getcarsbymake'
+  
   match 'api/cars/:makeid/:yearid' => 'api#getcarsbymakeandyear'
+  match 'api/carsByMakeAndYear' => 'api#getcarsbymakeandyear'
+  
   match 'api/categories/:id' => 'api#getcategoriesbycar'
+  match 'api/categories' => 'api#getcategoriesbycar'
+  
   match 'api/products/:carid/:catid' => 'api#getproductsbycarandcategory'
+  match 'api/productsByCarAndCat' => 'api#getproductsbycarandcategory'
+  
   match 'api/' => 'api#index'
 
   resources :subcategories
