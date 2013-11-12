@@ -7,9 +7,10 @@ class Product < ActiveRecord::Base
   
   accepts_nested_attributes_for :product_images, :reject_if => lambda { |t| t['product_image'].nil? }
 
-  def thumbnail
-  	return self.image.url(:medium)
-  end
+
+  #def thumbnail
+  #	return self.image.url(:medium)
+  #end
   
   def as_json(options)
     options ||= {} #even if you provide a default, it ends up as nil
