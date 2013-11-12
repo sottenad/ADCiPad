@@ -1,5 +1,14 @@
 ADC::Application.routes.draw do
 
+  match 'token/gettoken' => 'token#gettoken'
+  
+  match 'api/years' => 'api#getyears'
+  match 'api/makes/:id' => 'api#getmakesbyyear'
+  match 'api/cars/:id' => 'api#getcarsbymake'
+  match 'api/cars/:makeid/:yearid' => 'api#getcarsbymakeandyear'
+  match 'api/categories/:id' => 'api#getcategoriesbycar'
+  match 'api/products/:carid/:catid' => 'api#getproductsbycarandcategory'
+  match 'api/' => 'api#index'
 
   resources :subcategories
 
@@ -21,15 +30,7 @@ ADC::Application.routes.draw do
 
   resources :makes
 
-  match 'token/gettoken' => 'token#gettoken'
-  
-  match 'api/years' => 'api#getyears'
-  match 'api/makes/:id' => 'api#getmakesbyyear'
-  match 'api/cars/:id' => 'api#getcarsbymake'
-  match 'api/cars/:makeid/:yearid' => 'api#getcarsbymakeandyear'
-  match 'api/categories/:id' => 'api#getcategoriesbycar'
-  match 'api/products/:carid/:catid' => 'api#getproductsbycarandcategory'
-  match 'api/' => 'api#index'
+
 
 
 
