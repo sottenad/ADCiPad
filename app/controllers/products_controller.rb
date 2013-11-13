@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
   def new
 
     @product = Product.new
-    3.times {@product.product_images.build}
+    #3.times {@product.product_images.build}
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @product }
@@ -38,14 +38,14 @@ class ProductsController < ApplicationController
   def edit
 
     @product = Product.find(params[:id])
-    3.times {@product.product_images.build}
+    #3.times {@product.product_images.build}
   end
 
   # POST /products
   # POST /products.json
   def create
     @product = Product.new(params[:product])
-    @product.image = params[:image]
+
     @product.save
     respond_to do |format|
       if @product.save
@@ -63,8 +63,8 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     params[:product][:car_ids] ||= []
-    @product.image = params[:image] || @product.image
-    @product.image_2 = params[:image_2] || @product.image_2
+    #@product.image = params[:image] || @product.image
+    #@product.image_2 = params[:image_2] || @product.image_2
 
     @product.save
     respond_to do |format|

@@ -1,5 +1,7 @@
 ADC::Application.routes.draw do
 
+  resources :brands
+
   match 'token/gettoken' => 'token#gettoken'
   
   match 'api/years' => 'api#getyears'
@@ -15,6 +17,9 @@ ADC::Application.routes.draw do
   
   match 'api/categories/:id' => 'api#getcategoriesbycar'
   match 'api/categories' => 'api#getcategoriesbycar'
+  
+  match 'api/mfg/:carid/:catid' => 'api#getmfgbycarandcat'
+  match 'api/mfgByCarAndCat' => 'api#getmfgbycarandcat'
   
   match 'api/products/:carid/:catid' => 'api#getproductsbycarandcategory'
   match 'api/productsByCarAndCat' => 'api#getproductsbycarandcategory'

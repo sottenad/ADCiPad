@@ -3,9 +3,9 @@ class Product < ActiveRecord::Base
   belongs_to :category
   has_and_belongs_to_many :cars
   has_one :manufacturer
-  has_many :product_images, :dependent => :destroy
+  #has_many :product_images, :dependent => :destroy
   
-  accepts_nested_attributes_for :product_images, :reject_if => lambda { |t| t['product_image'].nil? }
+  #accepts_nested_attributes_for :product_images, :reject_if => lambda { |t| t['product_image'].nil? }
 
 
   #def thumbnail

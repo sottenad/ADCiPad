@@ -3,8 +3,17 @@ API Methods:
   <li>match 'token/gettoken' => 'token#gettoken'</li>
   <li>match 'api/years' => 'api#getyears'</li>
   <li>match 'api/makes/:id' => 'api#getmakesbyyear'</li>
+  <li>match 'api/makes' => 'api#getmakesbyyear'</li>
   <li>match 'api/cars/:id' => 'api#getcarsbymake'</li>
+  <li>match 'api/cars' => 'api#getcarsbymake'</li>
+  <li>match 'api/cars/:makeid/:yearid' => 'api#getcarsbymakeandyear'</li>
+  <li>match 'api/carsByMakeAndYear' => 'api#getcarsbymakeandyear'</li>
   <li>match 'api/categories/:id' => 'api#getcategoriesbycar'</li>
+  <li>match 'api/categories' => 'api#getcategoriesbycar'</li>
+  <li>match 'api/mfg/:carid/:catid' => 'api#getmfgbycarandcat'</li>
+  <li>match 'api/mfgByCarAndCat' => 'api#getmfgbycarandcat'</li>
   <li>match 'api/products/:carid/:catid' => 'api#getproductsbycarandcategory'</li>
-  <li>match 'api/' => 'api#index'</li>
+  <li>match 'api/productsByCarAndCat' => 'api#getproductsbycarandcategory'</li>
+  
+  
 </ul>
