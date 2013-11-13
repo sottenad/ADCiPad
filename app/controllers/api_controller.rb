@@ -61,14 +61,7 @@ class ApiController < ApplicationController
     @selectedcar = Car.find(carID)
     catID = params[:catid]    
     @products = @selectedcar.products.uniq
-    puts '-------------------------------------'
-    puts @selectedcar.model
-    puts '-------------------------------------'
-    puts '-------------------------------------'
-    @products.each do |p|
-    	puts p.name
-    end
-    puts '-------------------------------------'
+
     @uniqueMfg = @products.map(&:manufacturer_id).uniq
     @mfgObjects = Manufacturer.find(@uniqueMfg, :order => 'name')
     respond_to do |format|
@@ -77,12 +70,12 @@ class ApiController < ApplicationController
     end
   end
 
-  def getproductsbycarmfgandcategory
+  def getproductsbycarcatmfg
     carID = params[:carid]
     categoryID = params[:catid]
-    mfgID = params[:catid]
+    mfgID = params[:mfgid]
     @selectedcar = Car.find(carID)
-    @products = @selectedcar.products.find_all_by_category_id(categoryID, :order => 'name')
+    @products = @selectedcar.products.find_all_by_category_id_and_manufacturer_id(categoryID, mfgID, :order => 'name').uniq
     respond_to do |format|
       format.html # getbymake.html.erb
       format.json { render json: @products }

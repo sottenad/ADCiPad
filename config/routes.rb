@@ -21,8 +21,8 @@ ADC::Application.routes.draw do
   match 'api/mfg/:carid/:catid' => 'api#getmfgbycarandcat'
   match 'api/mfgByCarAndCat' => 'api#getmfgbycarandcat'
   
-  match 'api/products/:carid/:catid' => 'api#getproductsbycarandcategory'
-  match 'api/productsByCarAndCat' => 'api#getproductsbycarandcategory'
+  match 'api/products/:carid/:catid/:mfgid' => 'api#getproductsbycarcatmfg'
+  match 'api/getproductsbycarcatmfg' => 'api#getproductsbycarcatmfg'
   
   match 'api/' => 'api#index'
 
