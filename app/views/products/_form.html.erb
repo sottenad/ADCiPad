@@ -27,6 +27,27 @@
     <%= f.label :price %><br />
     <%= f.number_field :price %>
   </div>
+
+  <div class="field">
+  	<label>Images</label>
+	<div class="newPaperclipFiles">
+	        <%= f.fields_for :product_images do |asset| %>      
+	           <% if asset.object.new_record? %>
+	                 <%= asset.file_field :image %>
+	           <% end %>
+	           <% if !asset.object.new_record? %>
+	                <div class="thumbnail">
+			                <%= image_tag(asset.object.image.url(:thumb)) %>
+	                        <%= link_to "Delete", asset.object, confirm: 'Are you sure?', method: :delete   %>
+
+	                </div>
+	          <% end %>  
+	       <% end %>
+	</div>
+	
+
+  </div>
+
   <div class="field">
     <%= f.label :partsnumber %><br />
     <%= f.text_field :partsnumber %>

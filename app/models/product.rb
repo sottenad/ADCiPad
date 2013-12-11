@@ -1,11 +1,11 @@
 class Product < ActiveRecord::Base
-  attr_accessible :category_id, :name, :price , :car_ids, :partsnumber, :description, :youtube_code, :manufacturer_id, :product_images
+  attr_accessible :category_id, :name, :price , :car_ids, :partsnumber, :description, :youtube_code, :manufacturer_id, :product_images_attributes
   belongs_to :category
   has_and_belongs_to_many :cars
   has_one :manufacturer
-  #has_many :product_images, :dependent => :destroy
+  has_many :product_images, :dependent => :destroy
   
-  #	accepts_nested_attributes_for :product_images, :reject_if => lambda { |t| t['product_image'].nil? }
+  accepts_nested_attributes_for :product_images
 
 
   #def thumbnail

@@ -45,6 +45,8 @@ ADC::Application.routes.draw do
   resources :cars
 
   resources :makes
+  
+  resources :product_images
 
 
 
