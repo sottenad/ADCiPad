@@ -77,7 +77,7 @@ class ApiController < ApplicationController
     @products = @selectedcar.products.find_all_by_category_id(categoryID, :order => 'name').uniq
     respond_to do |format|
       format.html # getbymake.html.erb
-      format.json { render json: @products }
+      format.json { render json: @products, :include => :product_images }
     end
   end
 
