@@ -37,7 +37,7 @@ skip_before_filter  :verify_authenticity_token
 
   # GET /orders/1/edit
   def edit
-    @order = Order.find(params[:id])
+    #@order = Order.find(params[:id])
   end
 
   # POST /orders

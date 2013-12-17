@@ -9,7 +9,8 @@ class TokenController < ApplicationController
 	  		:success=>true, 
 	  		:auth_token=>user.authentication_token, 
 	  		:username=>user.username,
-	  		:price_multiplier=>user.price_multiplier
+	  		:price_multiplier=>user.price_multiplier,
+	  		:user_id =>user.id
 	  	}
 	  else
 	    render :json => {:error => "Invalid login or password."}, :status => :unauthorized;
