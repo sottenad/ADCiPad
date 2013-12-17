@@ -47,7 +47,7 @@ skip_before_filter  :verify_authenticity_token
 
     respond_to do |format|
       if @order.save
-	    OrderMailer.new_order_email(@user).deliver
+	    OrderMailer.new_order_email(@order).deliver
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render json: @order, status: :created, location: @order }
       else
