@@ -80,5 +80,7 @@ class ApiController < ApplicationController
       format.json { render json: @products, :include => {:product_images => {:methods => [:image_url]}}  }
     end
   end
+  
+  
 
 end
