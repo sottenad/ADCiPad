@@ -1,5 +1,7 @@
 ADC::Application.routes.draw do
 
+  resources :orders
+
   resources :brands
 
   match 'token/gettoken' => 'token#gettoken'
