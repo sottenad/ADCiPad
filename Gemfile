@@ -16,6 +16,7 @@ gem 'awesome_nested_set'
 gem 'acts_as_tree'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk'
+gem 'newrelic_rpm'
 
 
 # Gems used only for assets and not required
