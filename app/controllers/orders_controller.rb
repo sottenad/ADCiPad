@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+
+skip_before_filter  :verify_authenticity_token
+
   # GET /orders
   # GET /orders.json
   def index
