@@ -3,6 +3,7 @@ class Car < ActiveRecord::Base
   belongs_to :make
   has_and_belongs_to_many :products
   has_and_belongs_to_many :years
+  has_many :orders
   has_attached_file :image,
    :styles =>{
 	  thumb: '100x100>', square: '200x200#', medium: '300x300>'

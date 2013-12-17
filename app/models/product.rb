@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
   attr_accessible :category_id, :name, :price , :car_ids, :partsnumber, :description, :youtube_code, :manufacturer_id, :product_images_attributes
   belongs_to :category
   has_and_belongs_to_many :cars
+  has_and_belongs_to_many :orders
   has_one :manufacturer
   has_many :product_images, :dependent => :destroy
   

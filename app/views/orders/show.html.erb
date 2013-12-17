@@ -2,12 +2,15 @@
 
 <p>
   <b>Vehicle:</b>
-  <%= @order.vehicle_id %>
+  <%= @order.car.model %>
 </p>
 
 <p>
   <b>Product ids:</b>
-  <%= @order.product_ids %>
+
+  <% @order.products.each do |o| %>
+  	<%= o.name %>,	
+  <% end %>
 </p>
 
 

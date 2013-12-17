@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+  	<th>Name</th>
     <th>Vehicle</th>
     <th>Product ids</th>
     <th></th>
@@ -11,8 +12,17 @@
 
 <% @orders.each do |order| %>
   <tr>
-    <td><%= order.vehicle_id %></td>
-    <td><%= order.product_ids %></td>
+  	<td>
+  		<%if !order.user.nil? %>
+  			<%= order.user.name %>
+  		<% end %>
+  	</td>
+    <td><%= order.car.model %></td>
+    <td>  
+    	<% order.products.each do |o| %>
+    		<%= o.name %>,	
+    	<% end %>
+    </td>
     <td><%= link_to 'Show', order %></td>
     <td><%= link_to 'Edit', edit_order_path(order) %></td>
     <td><%= link_to 'Destroy', order, confirm: 'Are you sure?', method: :delete %></td>

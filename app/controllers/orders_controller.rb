@@ -6,7 +6,7 @@ skip_before_filter  :verify_authenticity_token
   # GET /orders.json
   def index
     @orders = Order.all
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @orders }
@@ -47,6 +47,7 @@ skip_before_filter  :verify_authenticity_token
 
     respond_to do |format|
       if @order.save
+	    OrderMailer.new_order_email(@user).deliver
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render json: @order, status: :created, location: @order }
       else
